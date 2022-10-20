@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Hexo + github page 搭建个人博客</title>
+      <link href="/2022/10/20/hello/"/>
+      <url>/2022/10/20/hello/</url>
+      
+        <content type="html"><![CDATA[<h1>Hexo + github page 搭建个人博客</h1><h2 id="1-注册github账号">1.注册github账号</h2><p>首先去<a href="https://github.com">github官网</a>注册一个新号,用于托管我们的博客项目。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客搭建 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2022/10/20/hello-world/"/>
       <url>/2022/10/20/hello-world/</url>

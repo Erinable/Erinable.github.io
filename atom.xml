@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>Junk Coder</title>
   
-  
+  <subtitle>Junk Code Maker</subtitle>
   <link href="https://erinable.github.io/atom.xml" rel="self"/>
   
   <link href="https://erinable.github.io/"/>
-  <updated>2022-10-20T06:41:12.595Z</updated>
+  <updated>2022-10-20T15:25:24.179Z</updated>
   <id>https://erinable.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Hexo + github page 搭建个人博客</title>
+    <link href="https://erinable.github.io/2022/10/20/hello/"/>
+    <id>https://erinable.github.io/2022/10/20/hello/</id>
+    <published>2022-10-20T12:56:52.000Z</published>
+    <updated>2022-10-20T15:25:24.179Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;Hexo + github page 搭建个人博客&lt;/h1&gt;
+&lt;h2 id=&quot;1-注册github账号&quot;&gt;1.注册github账号&lt;/h2&gt;
+&lt;p&gt;首先去&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="博客搭建" scheme="https://erinable.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="hexo" scheme="https://erinable.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="https://erinable.github.io/2022/10/20/hello-world/"/>
     <id>https://erinable.github.io/2022/10/20/hello-world/</id>
     <published>2022-10-20T06:41:12.595Z</published>
-    <updated>2022-10-20T06:41:12.595Z</updated>
+    <updated>2022-10-20T15:19:31.623Z</updated>
     
     
       
