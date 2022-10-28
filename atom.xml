@@ -6,7 +6,7 @@
   <link href="https://erinable.github.io/atom.xml" rel="self"/>
   
   <link href="https://erinable.github.io/"/>
-  <updated>2022-10-20T15:25:24.179Z</updated>
+  <updated>2022-10-28T03:50:15.412Z</updated>
   <id>https://erinable.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>逻辑回归</title>
+    <link href="https://erinable.github.io/2022/10/28/luo-ji-hui-gui-jiang-jie/"/>
+    <id>https://erinable.github.io/2022/10/28/luo-ji-hui-gui-jiang-jie/</id>
+    <published>2022-10-28T03:56:52.000Z</published>
+    <updated>2022-10-28T03:50:15.412Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;逻辑回归&lt;/h1&gt;
+&lt;h2 id=&quot;1-模型介绍&quot;&gt;1.模型介绍&lt;/h2&gt;
+&lt;p&gt;Logistic Regression</summary>
+        
+      
+    
+    
+    
+    <category term="统计机器学习" scheme="https://erinable.github.io/categories/%E7%BB%9F%E8%AE%A1%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="ML" scheme="https://erinable.github.io/tags/ML/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo + github page 搭建个人博客</title>
