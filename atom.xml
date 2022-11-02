@@ -44,6 +44,32 @@
   </entry>
   
   <entry>
+    <title>操作系统概述</title>
+    <link href="https://erinable.github.io/2022/10/28/cao-zuo-xi-tong-jie-kou/"/>
+    <id>https://erinable.github.io/2022/10/28/cao-zuo-xi-tong-jie-kou/</id>
+    <published>2022-10-28T03:56:52.000Z</published>
+    <updated>2022-11-02T13:33:14.237Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;1.操作系统概述&lt;/h1&gt;
+&lt;p&gt;以分时复用的方式让多个程序可以有效利用计算机的硬件资源，并且相对于程序直接操作硬件资源，通过与操作系统交互间接使用硬件资源的形式更便捷简单。具体地，操作系统以一种称之为 “&lt;strong&gt;_kernel</summary>
+        
+      
+    
+    
+    
+    <category term="操作系统" scheme="https://erinable.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="xv6" scheme="https://erinable.github.io/tags/xv6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hexo + github page 搭建个人博客</title>
     <link href="https://erinable.github.io/2022/10/20/hello/"/>
     <id>https://erinable.github.io/2022/10/20/hello/</id>
