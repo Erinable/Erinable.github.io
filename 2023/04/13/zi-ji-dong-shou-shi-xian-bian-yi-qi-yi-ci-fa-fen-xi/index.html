@@ -4,12 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="OCaml Learn, DeepLearning AutoML Reinforcement-Learning  OS">
-    <meta name="description" content="OCaml如何利用dune来构建项目
-1.dune创建项目命令
-dune init project my_proj
-cd my_proj
-opam switch create . 4.14.1 --deps-only --with-test">
+    <meta name="keywords" content="自己动手实现编译器(一) 词法分析, DeepLearning AutoML Reinforcement-Learning  OS">
+    <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +17,7 @@ opam switch create . 4.14.1 --deps-only --with-test">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>OCaml Learn | Junk Coder</title>
+    <title>自己动手实现编译器(一) 词法分析 | Junk Coder</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -285,12 +281,12 @@ opam switch create . 4.14.1 --deps-only --with-test">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">OCaml Learn</h1>
+                    <h1 class="description center-align post-title">自己动手实现编译器(一) 词法分析</h1>
                 </div>
             </div>
         </div>
@@ -314,16 +310,8 @@ opam switch create . 4.14.1 --deps-only --with-test">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Ocaml/">
-                                <span class="chip bg-color">Ocaml</span>
-                            </a>
-                        
-                            <a href="/tags/Function-Programming/">
-                                <span class="chip bg-color">Function Programming</span>
-                            </a>
-                        
-                            <a href="/tags/Dune/">
-                                <span class="chip bg-color">Dune</span>
+                            <a href="/tags/%E7%BC%96%E8%AF%91%E5%99%A8/">
+                                <span class="chip bg-color">编译器</span>
                             </a>
                         
                     </div>
@@ -334,8 +322,8 @@ opam switch create . 4.14.1 --deps-only --with-test">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Function-Programming/" class="post-category">
-                                Function Programming
+                            <a href="/categories/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E7%BC%96%E8%AF%91%E5%99%A8%E7%B3%BB%E5%88%97/" class="post-category">
+                                自己动手实现编译器系列
                             </a>
                         
                     </div>
@@ -361,7 +349,7 @@ opam switch create . 4.14.1 --deps-only --with-test">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    905
+                    0
                 </div>
                 
 
@@ -381,131 +369,7 @@ opam switch create . 4.14.1 --deps-only --with-test">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1>OCaml如何利用dune来构建项目</h1>
-<h2 id="1-dune创建项目命令">1.dune创建项目命令</h2>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">dune init project my_proj
-<span class="token builtin class-name">cd</span> my_proj
-opam switch create <span class="token builtin class-name">.</span> <span class="token number">4.14</span>.1 --deps-only --with-test <span class="token parameter variable">-y</span>
-<span class="token builtin class-name">eval</span> <span class="token variable"><span class="token variable">$(</span>opam <span class="token function">env</span><span class="token variable">)</span></span>
-dune build
-<span class="token comment"># 更新项目依赖库后，需要执行一下命令</span>
-opam <span class="token function">install</span> <span class="token builtin class-name">.</span> --deps-only --with-test <span class="token parameter variable">-y</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="2-项目整体结构">2.项目整体结构</h2>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hw								<span class="token comment">#项目根目录</span>
-├── _build						<span class="token comment">#项目编译产出结果</span>
-│   ├── default
-│   │   ├── META.hw
-│   │   ├── bin
-│   │   ├── hw.dune-package
-│   │   ├── hw.install
-│   │   ├── hw.opam
-│   │   ├── lib
-│   │   └── <span class="token builtin class-name">test</span>
-│   ├── <span class="token function">install</span>
-│   │   └── default
-│   └── log					   <span class="token comment">#编译日志</span>
-├── bin						   <span class="token comment">#项目主代码目录</span>
-│   ├── dune				   <span class="token comment">#dune主代码编译配置</span>
-│   ├── main.ml				   <span class="token comment">#项目主代码</span>
-├── dune-project			   <span class="token comment">#dune项目编译配置</span>
-├── hw.opam					   <span class="token comment">#自动生成的依赖配置</span>
-├── lib						   <span class="token comment">#自定义库代码目录</span>
-│   ├── dune				   <span class="token comment">#dune配置</span>
-│   ├── map.ml				   <span class="token comment">#实现文件</span>
-│   └── map.mli				   <span class="token comment">#接口文件</span>
-└── <span class="token builtin class-name">test</span>                       <span class="token comment">#测试目录</span>
-    ├── dune
-    └── hw.ml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="3-OCaml接口与实现分离的写法">3.OCaml接口与实现分离的写法</h2>
-<p>外部只能访问接口文件，具体实现无需关心。接口文件以mli后缀结尾，实现文件以ml后缀结尾。这里以Map数据结构的实现来讲解：</p>
-<h3 id="3-1-定义接口">3.1 定义接口</h3>
-<pre class="line-numbers language-ocaml" data-language="ocaml"><code class="language-ocaml"><span class="token comment">(* Map.mli *)</span>
-
-<span class="token keyword">module</span> <span class="token keyword">type</span> OrderedType <span class="token operator">=</span>
-  <span class="token keyword">sig</span>
-    <span class="token keyword">type</span> t
-    <span class="token keyword">val</span> compare<span class="token punctuation">:</span> t <span class="token operator">-&gt;</span> t <span class="token operator">-&gt;</span> int
-  <span class="token keyword">end</span>
-
-<span class="token keyword">module</span> <span class="token keyword">type</span> S <span class="token operator">=</span>
-  <span class="token keyword">sig</span>
-    <span class="token keyword">type</span> key
-    <span class="token keyword">type</span> <span class="token operator">!+</span><span class="token type-variable function">'a</span> t
-    <span class="token keyword">val</span> empty<span class="token punctuation">:</span> <span class="token type-variable function">'a</span> t
-    <span class="token keyword">val</span> is_empty<span class="token punctuation">:</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> bool
-    <span class="token keyword">val</span> mem<span class="token punctuation">:</span>  key <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> bool
-    <span class="token keyword">val</span> add<span class="token punctuation">:</span> key <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t
-    <span class="token keyword">val</span> update<span class="token punctuation">:</span> key <span class="token operator">-&gt;</span> <span class="token punctuation">(</span><span class="token type-variable function">'a</span> option <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> option<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t
-    <span class="token keyword">val</span> singleton<span class="token punctuation">:</span> key <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t
-    <span class="token keyword">val</span> remove<span class="token punctuation">:</span> key <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t
-    <span class="token keyword">val</span> merge<span class="token punctuation">:</span>
-          <span class="token punctuation">(</span>key <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> option <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span> option <span class="token operator">-&gt;</span> <span class="token type-variable function">'c</span> option<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span> t <span class="token operator">-&gt;</span> <span class="token type-variable function">'c</span> t
-    <span class="token keyword">val</span> union<span class="token punctuation">:</span> <span class="token punctuation">(</span>key <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> option<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t
-    <span class="token keyword">val</span> compare<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> int<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> int
-    <span class="token keyword">val</span> equal<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> bool<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> bool
-    <span class="token keyword">val</span> iter<span class="token punctuation">:</span> <span class="token punctuation">(</span>key <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> unit<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> unit
-    <span class="token keyword">val</span> fold<span class="token punctuation">:</span> <span class="token punctuation">(</span>key <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span>
-    <span class="token keyword">val</span> for_all<span class="token punctuation">:</span> <span class="token punctuation">(</span>key <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> bool<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> bool
-    <span class="token keyword">val</span> exists<span class="token punctuation">:</span> <span class="token punctuation">(</span>key <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> bool<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> bool
-    <span class="token keyword">val</span> filter<span class="token punctuation">:</span> <span class="token punctuation">(</span>key <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> bool<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t
-    <span class="token keyword">val</span> filter_map<span class="token punctuation">:</span> <span class="token punctuation">(</span>key <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span> option<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span> t
-    <span class="token keyword">val</span> partition<span class="token punctuation">:</span> <span class="token punctuation">(</span>key <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> bool<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">*</span> <span class="token type-variable function">'a</span> t
-    <span class="token keyword">val</span> cardinal<span class="token punctuation">:</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> int
-    <span class="token keyword">val</span> bindings<span class="token punctuation">:</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token punctuation">(</span>key <span class="token operator">*</span> <span class="token type-variable function">'a</span><span class="token punctuation">)</span> list
-    <span class="token keyword">val</span> min_binding<span class="token punctuation">:</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token punctuation">(</span>key <span class="token operator">*</span> <span class="token type-variable function">'a</span><span class="token punctuation">)</span>
-    <span class="token keyword">val</span> min_binding_opt<span class="token punctuation">:</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token punctuation">(</span>key <span class="token operator">*</span> <span class="token type-variable function">'a</span><span class="token punctuation">)</span> option
-    <span class="token keyword">val</span> max_binding<span class="token punctuation">:</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token punctuation">(</span>key <span class="token operator">*</span> <span class="token type-variable function">'a</span><span class="token punctuation">)</span>
-    <span class="token keyword">val</span> max_binding_opt<span class="token punctuation">:</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token punctuation">(</span>key <span class="token operator">*</span> <span class="token type-variable function">'a</span><span class="token punctuation">)</span> option
-    <span class="token keyword">val</span> choose<span class="token punctuation">:</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token punctuation">(</span>key <span class="token operator">*</span> <span class="token type-variable function">'a</span><span class="token punctuation">)</span>
-    <span class="token keyword">val</span> choose_opt<span class="token punctuation">:</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token punctuation">(</span>key <span class="token operator">*</span> <span class="token type-variable function">'a</span><span class="token punctuation">)</span> option
-    <span class="token keyword">val</span> split<span class="token punctuation">:</span> key <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">*</span> <span class="token type-variable function">'a</span> option <span class="token operator">*</span> <span class="token type-variable function">'a</span> t
-    <span class="token keyword">val</span> find<span class="token punctuation">:</span> key <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span>
-    <span class="token keyword">val</span> find_opt<span class="token punctuation">:</span> key <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> option
-    <span class="token keyword">val</span> find_first<span class="token punctuation">:</span> <span class="token punctuation">(</span>key <span class="token operator">-&gt;</span> bool<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> key <span class="token operator">*</span> <span class="token type-variable function">'a</span>
-    <span class="token keyword">val</span> find_first_opt<span class="token punctuation">:</span> <span class="token punctuation">(</span>key <span class="token operator">-&gt;</span> bool<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token punctuation">(</span>key <span class="token operator">*</span> <span class="token type-variable function">'a</span><span class="token punctuation">)</span> option
-    <span class="token keyword">val</span> find_last<span class="token punctuation">:</span> <span class="token punctuation">(</span>key <span class="token operator">-&gt;</span> bool<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> key <span class="token operator">*</span> <span class="token type-variable function">'a</span>
-    <span class="token keyword">val</span> find_last_opt<span class="token punctuation">:</span> <span class="token punctuation">(</span>key <span class="token operator">-&gt;</span> bool<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token punctuation">(</span>key <span class="token operator">*</span> <span class="token type-variable function">'a</span><span class="token punctuation">)</span> option
-    <span class="token keyword">val</span> map<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span> t
-    <span class="token keyword">val</span> mapi<span class="token punctuation">:</span> <span class="token punctuation">(</span>key <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span> t
-    <span class="token keyword">val</span> to_seq <span class="token punctuation">:</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token punctuation">(</span>key <span class="token operator">*</span> <span class="token type-variable function">'a</span><span class="token punctuation">)</span> Seq<span class="token punctuation">.</span>t
-    <span class="token keyword">val</span> to_rev_seq <span class="token punctuation">:</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token punctuation">(</span>key <span class="token operator">*</span> <span class="token type-variable function">'a</span><span class="token punctuation">)</span> Seq<span class="token punctuation">.</span>t
-    <span class="token keyword">val</span> to_seq_from <span class="token punctuation">:</span> key <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token punctuation">(</span>key <span class="token operator">*</span> <span class="token type-variable function">'a</span><span class="token punctuation">)</span> Seq<span class="token punctuation">.</span>t
-    <span class="token keyword">val</span> add_seq <span class="token punctuation">:</span> <span class="token punctuation">(</span>key <span class="token operator">*</span> <span class="token type-variable function">'a</span><span class="token punctuation">)</span> Seq<span class="token punctuation">.</span>t <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t
-    <span class="token keyword">val</span> of_seq <span class="token punctuation">:</span> <span class="token punctuation">(</span>key <span class="token operator">*</span> <span class="token type-variable function">'a</span><span class="token punctuation">)</span> Seq<span class="token punctuation">.</span>t <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> t
-  <span class="token keyword">end</span>
-  
-  <span class="token keyword">module</span> Make <span class="token punctuation">(</span>Ord <span class="token punctuation">:</span> OrderedType<span class="token punctuation">)</span> <span class="token punctuation">:</span> S <span class="token keyword">with</span> <span class="token keyword">type</span> key <span class="token operator">=</span> Ord<span class="token punctuation">.</span>t<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>接口文件中要放入外界可以访问的资源，例如函数声明，类型定义，常量定义，module type，module factors等，factor可以实现范型。</p>
-<p>OrderedType:map数据结构key的类型</p>
-<p>S:接口</p>
-<p>Make:map数据结构的constructor</p>
-<h3 id="3-2-调用">3.2 调用</h3>
-<pre class="line-numbers language-ocaml" data-language="ocaml"><code class="language-ocaml"><span class="token comment">(* 同级目录调用 *)</span>
-<span class="token keyword">module</span> MyUsers <span class="token operator">=</span> Map<span class="token punctuation">.</span>Make<span class="token punctuation">(</span>String<span class="token punctuation">)</span>
-
-<span class="token comment">(* main文件中调用 *)</span>
-<span class="token keyword">module</span> MyUsers <span class="token operator">=</span> Lib<span class="token punctuation">.</span>Map<span class="token punctuation">.</span>Make<span class="token punctuation">(</span>String<span class="token punctuation">)</span>
-
-<span class="token keyword">let</span> m <span class="token operator">=</span> MyUsers<span class="token punctuation">.</span>empty
-
-<span class="token keyword">let</span> n <span class="token operator">=</span> MyUsers<span class="token punctuation">.</span>add <span class="token string">"fred"</span> <span class="token string">"sugarplums"</span> m<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="3-3-实现">3.3 实现</h3>
-<pre class="line-numbers language-ocaml" data-language="ocaml"><code class="language-ocaml"><span class="token comment">(* Map.ml *)</span>
-<span class="token keyword">module</span> <span class="token keyword">type</span> OrderedType <span class="token operator">=</span>
-  <span class="token keyword">sig</span>
-    <span class="token keyword">type</span> t
-    <span class="token keyword">val</span> compare<span class="token punctuation">:</span> t <span class="token operator">-&gt;</span> t <span class="token operator">-&gt;</span> int
-  <span class="token keyword">end</span>
-
-<span class="token keyword">module</span> <span class="token keyword">type</span> S <span class="token operator">=</span> <span class="token keyword">sig</span> <span class="token operator">..</span><span class="token punctuation">.</span> <span class="token keyword">end</span>
-
-<span class="token keyword">module</span> Make<span class="token punctuation">(</span>Ord <span class="token punctuation">:</span> OrderedType<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">struct</span>
-  <span class="token keyword">type</span> key <span class="token operator">=</span> ord<span class="token punctuation">.</span>t
-  <span class="token keyword">type</span> <span class="token type-variable function">'a</span> t <span class="token operator">=</span> Empty
-      <span class="token operator">|</span> Node <span class="token keyword">of</span> <span class="token punctuation">{</span>l<span class="token punctuation">:</span><span class="token type-variable function">'a</span> t<span class="token punctuation">;</span> v<span class="token punctuation">:</span>key<span class="token punctuation">;</span> d<span class="token punctuation">:</span><span class="token type-variable function">'a</span><span class="token punctuation">;</span> r<span class="token punctuation">:</span><span class="token type-variable function">'a</span> t<span class="token punctuation">;</span> h<span class="token punctuation">:</span>int<span class="token punctuation">}</span>
-  <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>如何你的module要让外界处理None，那么类型系统就需要定义为option，方便外界处理。</p>
-
+                
                 
             </div>
             <hr/>
@@ -531,7 +395,7 @@ opam <span class="token function">install</span> <span class="token builtin clas
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://erinable.github.io/2023/04/13/ocaml-learn/">https://erinable.github.io/2023/04/13/ocaml-learn/</a>
+                    <a href="https://erinable.github.io/2023/04/13/zi-ji-dong-shou-shi-xian-bian-yi-qi-yi-ci-fa-fen-xi/">https://erinable.github.io/2023/04/13/zi-ji-dong-shou-shi-xian-bian-yi-qi-yi-ci-fa-fen-xi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -569,16 +433,8 @@ opam <span class="token function">install</span> <span class="token builtin clas
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Ocaml/">
-                                    <span class="chip bg-color">Ocaml</span>
-                                </a>
-                            
-                                <a href="/tags/Function-Programming/">
-                                    <span class="chip bg-color">Function Programming</span>
-                                </a>
-                            
-                                <a href="/tags/Dune/">
-                                    <span class="chip bg-color">Dune</span>
+                                <a href="/tags/%E7%BC%96%E8%AF%91%E5%99%A8/">
+                                    <span class="chip bg-color">编译器</span>
                                 </a>
                             
                         </div>
@@ -624,9 +480,60 @@ opam <span class="token function">install</span> <span class="token builtin clas
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/04/13/zi-ji-dong-shou-shi-xian-bian-yi-qi-yi-ci-fa-fen-xi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="自己动手实现编译器(一) 词法分析">
+                        
+                        <span class="card-title">自己动手实现编译器(一) 词法分析</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E7%BC%96%E8%AF%91%E5%99%A8%E7%B3%BB%E5%88%97/" class="post-category">
+                                    自己动手实现编译器系列
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%BC%96%E8%AF%91%E5%99%A8/">
+                        <span class="chip bg-color">编译器</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2023/04/13/automl-design/">
                     <div class="card-image">
@@ -644,9 +551,9 @@ opam <span class="token function">install</span> <span class="token builtin clas
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -668,55 +575,6 @@ opam <span class="token function">install</span> <span class="token builtin clas
                     
                     <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">
                         <span class="chip bg-color">人工智能</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/10/28/luo-ji-hui-gui-jiang-jie/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="逻辑回归">
-                        
-                        <span class="card-title">逻辑回归</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-28
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%BB%9F%E8%AE%A1%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    统计机器学习
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/ML/">
-                        <span class="chip bg-color">ML</span>
                     </a>
                     
                 </div>

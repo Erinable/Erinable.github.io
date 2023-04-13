@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>自己动手实现编译器(一) 词法分析</title>
+      <link href="/2023/04/13/zi-ji-dong-shou-shi-xian-bian-yi-qi-yi-ci-fa-fen-xi/"/>
+      <url>/2023/04/13/zi-ji-dong-shou-shi-xian-bian-yi-qi-yi-ci-fa-fen-xi/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 自己动手实现编译器系列 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编译器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>AutoML Design</title>
       <link href="/2023/04/13/automl-design/"/>
       <url>/2023/04/13/automl-design/</url>
@@ -31,7 +56,7 @@
     
     
     <entry>
-      <title>Ocaml Learn</title>
+      <title>OCaml Learn</title>
       <link href="/2023/04/13/ocaml-learn/"/>
       <url>/2023/04/13/ocaml-learn/</url>
       
