@@ -5,11 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="OCaml Learn, DeepLearning AutoML Reinforcement-Learning  OS">
-    <meta name="description" content="OCaml如何利用dune来构建项目
-1.dune创建项目命令
-dune init project my_proj
+    <meta name="description" content="OCaml如何利用dune来构建项目1.dune创建项目命令dune init project my_proj
 cd my_proj
-opam switch create . 4.14.1 --deps-only --with-test">
+opam switch create . 4.14.1 --deps-only --with-test -">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -54,9 +52,9 @@ opam switch create . 4.14.1 --deps-only --with-test">
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Junk Coder" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Junk Coder" type="application/atom+xml">
 </head>
 
 
@@ -352,7 +350,7 @@ opam switch create . 4.14.1 --deps-only --with-test">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    905
+                    903
                 </div>
                 
 
@@ -372,17 +370,15 @@ opam switch create . 4.14.1 --deps-only --with-test">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1>OCaml如何利用dune来构建项目</h1>
-<h2 id="1-dune创建项目命令">1.dune创建项目命令</h2>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">dune init project my_proj
+                <h1 id="OCaml如何利用dune来构建项目"><a href="#OCaml如何利用dune来构建项目" class="headerlink" title="OCaml如何利用dune来构建项目"></a>OCaml如何利用dune来构建项目</h1><h2 id="1-dune创建项目命令"><a href="#1-dune创建项目命令" class="headerlink" title="1.dune创建项目命令"></a>1.dune创建项目命令</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">dune init project my_proj
 <span class="token builtin class-name">cd</span> my_proj
 opam switch create <span class="token builtin class-name">.</span> <span class="token number">4.14</span>.1 --deps-only --with-test <span class="token parameter variable">-y</span>
 <span class="token builtin class-name">eval</span> <span class="token variable"><span class="token variable">$(</span>opam <span class="token function">env</span><span class="token variable">)</span></span>
 dune build
 <span class="token comment"># 更新项目依赖库后，需要执行一下命令</span>
 opam <span class="token function">install</span> <span class="token builtin class-name">.</span> --deps-only --with-test <span class="token parameter variable">-y</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="2-项目整体结构">2.项目整体结构</h2>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hw								<span class="token comment">#项目根目录</span>
+
+<h2 id="2-项目整体结构"><a href="#2-项目整体结构" class="headerlink" title="2.项目整体结构"></a>2.项目整体结构</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hw								<span class="token comment">#项目根目录</span>
 ├── _build						<span class="token comment">#项目编译产出结果</span>
 │   ├── default
 │   │   ├── META.hw
@@ -407,10 +403,9 @@ opam <span class="token function">install</span> <span class="token builtin clas
 └── <span class="token builtin class-name">test</span>                       <span class="token comment">#测试目录</span>
     ├── dune
     └── hw.ml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="3-OCaml接口与实现分离的写法">3.OCaml接口与实现分离的写法</h2>
-<p>外部只能访问接口文件，具体实现无需关心。接口文件以mli后缀结尾，实现文件以ml后缀结尾。这里以Map数据结构的实现来讲解：</p>
-<h3 id="3-1-定义接口">3.1 定义接口</h3>
-<pre class="line-numbers language-ocaml" data-language="ocaml"><code class="language-ocaml"><span class="token comment">(* Map.mli *)</span>
+
+<h2 id="3-OCaml接口与实现分离的写法"><a href="#3-OCaml接口与实现分离的写法" class="headerlink" title="3.OCaml接口与实现分离的写法"></a>3.OCaml接口与实现分离的写法</h2><p>外部只能访问接口文件，具体实现无需关心。接口文件以mli后缀结尾，实现文件以ml后缀结尾。这里以Map数据结构的实现来讲解：</p>
+<h3 id="3-1-定义接口"><a href="#3-1-定义接口" class="headerlink" title="3.1 定义接口"></a>3.1 定义接口</h3><pre class="line-numbers language-ocaml" data-language="ocaml"><code class="language-ocaml"><span class="token comment">(* Map.mli *)</span>
 
 <span class="token keyword">module</span> <span class="token keyword">type</span> OrderedType <span class="token operator">=</span>
   <span class="token keyword">sig</span>
@@ -466,12 +461,12 @@ opam <span class="token function">install</span> <span class="token builtin clas
   <span class="token keyword">end</span>
   
   <span class="token keyword">module</span> Make <span class="token punctuation">(</span>Ord <span class="token punctuation">:</span> OrderedType<span class="token punctuation">)</span> <span class="token punctuation">:</span> S <span class="token keyword">with</span> <span class="token keyword">type</span> key <span class="token operator">=</span> Ord<span class="token punctuation">.</span>t<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>接口文件中要放入外界可以访问的资源，例如函数声明，类型定义，常量定义，module type，module factors等，factor可以实现范型。</p>
 <p>OrderedType:map数据结构key的类型</p>
 <p>S:接口</p>
 <p>Make:map数据结构的constructor</p>
-<h3 id="3-2-调用">3.2 调用</h3>
-<pre class="line-numbers language-ocaml" data-language="ocaml"><code class="language-ocaml"><span class="token comment">(* 同级目录调用 *)</span>
+<h3 id="3-2-调用"><a href="#3-2-调用" class="headerlink" title="3.2 调用"></a>3.2 调用</h3><pre class="line-numbers language-ocaml" data-language="ocaml"><code class="language-ocaml"><span class="token comment">(* 同级目录调用 *)</span>
 <span class="token keyword">module</span> MyUsers <span class="token operator">=</span> Map<span class="token punctuation">.</span>Make<span class="token punctuation">(</span>String<span class="token punctuation">)</span>
 
 <span class="token comment">(* main文件中调用 *)</span>
@@ -480,8 +475,8 @@ opam <span class="token function">install</span> <span class="token builtin clas
 <span class="token keyword">let</span> m <span class="token operator">=</span> MyUsers<span class="token punctuation">.</span>empty
 
 <span class="token keyword">let</span> n <span class="token operator">=</span> MyUsers<span class="token punctuation">.</span>add <span class="token string">"fred"</span> <span class="token string">"sugarplums"</span> m<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="3-3-实现">3.3 实现</h3>
-<pre class="line-numbers language-ocaml" data-language="ocaml"><code class="language-ocaml"><span class="token comment">(* Map.ml *)</span>
+
+<h3 id="3-3-实现"><a href="#3-3-实现" class="headerlink" title="3.3 实现"></a>3.3 实现</h3><pre class="line-numbers language-ocaml" data-language="ocaml"><code class="language-ocaml"><span class="token comment">(* Map.ml *)</span>
 <span class="token keyword">module</span> <span class="token keyword">type</span> OrderedType <span class="token operator">=</span>
   <span class="token keyword">sig</span>
     <span class="token keyword">type</span> t
@@ -495,6 +490,7 @@ opam <span class="token function">install</span> <span class="token builtin clas
   <span class="token keyword">type</span> <span class="token type-variable function">'a</span> t <span class="token operator">=</span> Empty
       <span class="token operator">|</span> Node <span class="token keyword">of</span> <span class="token punctuation">{</span>l<span class="token punctuation">:</span><span class="token type-variable function">'a</span> t<span class="token punctuation">;</span> v<span class="token punctuation">:</span>key<span class="token punctuation">;</span> d<span class="token punctuation">:</span><span class="token type-variable function">'a</span><span class="token punctuation">;</span> r<span class="token punctuation">:</span><span class="token type-variable function">'a</span> t<span class="token punctuation">;</span> h<span class="token punctuation">:</span>int<span class="token punctuation">}</span>
   <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>如何你的module要让外界处理None，那么类型系统就需要定义为option，方便外界处理。</p>
 
                 
@@ -672,13 +668,13 @@ opam <span class="token function">install</span> <span class="token builtin clas
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/10/28/luo-ji-hui-gui-jiang-jie/">
+                <a href="/2022/10/28/cao-zuo-xi-tong-jie-kou/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="逻辑回归">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="操作系统概述">
                         
-                        <span class="card-title">逻辑回归</span>
+                        <span class="card-title">操作系统概述</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -695,8 +691,8 @@ opam <span class="token function">install</span> <span class="token builtin clas
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%BB%9F%E8%AE%A1%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    统计机器学习
+                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    操作系统
                                 </a>
                             
                             
@@ -706,8 +702,8 @@ opam <span class="token function">install</span> <span class="token builtin clas
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ML/">
-                        <span class="chip bg-color">ML</span>
+                    <a href="/tags/xv6/">
+                        <span class="chip bg-color">xv6</span>
                     </a>
                     
                 </div>

@@ -5,17 +5,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="逻辑回归, DeepLearning AutoML Reinforcement-Learning  OS">
-    <meta name="description" content="逻辑回归
-1.模型介绍
-Logistic Regression 虽然被称为逻辑回归，但其实际上是分类模型，常用于二分类。具有一下三个特点:
+    <meta name="description" content="逻辑回归1.模型介绍Logistic Regression 虽然被称为逻辑回归，但其实际上是分类模型，常用于二分类。具有一下三个特点:
 
 实现简单
 可并行化
 可解释性强
 
-1.1 模型定义
-对于0-1分类问题，概率建模如下：
-$$p(y">
+1.1 模型定义对于0-1分类问题，概率建模如下：$$p(y|x,\">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -60,9 +56,9 @@ $$p(y">
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Junk Coder" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Junk Coder" type="application/atom+xml">
 </head>
 
 
@@ -370,121 +366,41 @@ $$p(y">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1>逻辑回归</h1>
-<h2 id="1-模型介绍">1.模型介绍</h2>
-<p>Logistic Regression 虽然被称为逻辑回归，但其实际上是分类模型，常用于二分类。具有一下三个特点:</p>
+                <h1 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h1><h2 id="1-模型介绍"><a href="#1-模型介绍" class="headerlink" title="1.模型介绍"></a>1.模型介绍</h2><p>Logistic Regression 虽然被称为逻辑回归，但其实际上是分类模型，常用于二分类。具有一下三个特点:</p>
 <ul>
 <li>实现简单</li>
 <li>可并行化</li>
 <li>可解释性强</li>
 </ul>
-<h3 id="1-1-模型定义">1.1 模型定义</h3>
-<p>对于0-1分类问题，概率建模如下：<br>
-$$p(y|x,\theta) =\frac{1}{1+e^{-\theta \cdot x}}$$</p>
-<h3 id="1-2-损失函数推导">1.2 损失函数推导</h3>
-<ul>
+<h3 id="1-1-模型定义"><a href="#1-1-模型定义" class="headerlink" title="1.1 模型定义"></a>1.1 模型定义</h3><p>对于0-1分类问题，概率建模如下：<br>$$p(y|x,\theta) =\frac{1}{1+e^{-\theta \cdot x}}$$</p>
+<h3 id="1-2-损失函数推导"><a href="#1-2-损失函数推导" class="headerlink" title="1.2 损失函数推导"></a>1.2 损失函数推导</h3><ul>
 <li>极大似然估计</li>
 <li>交叉熵</li>
 </ul>
-<h4 id="极大似然估计">极大似然估计</h4>
-<blockquote>
+<h4 id="极大似然估计"><a href="#极大似然估计" class="headerlink" title="极大似然估计"></a>极大似然估计</h4><blockquote>
 <p>极大似然的原理</p>
 </blockquote>
 <blockquote>
 <p>给定一个概率分布$D$，已知其概率密度函数（连续分布）或概率质量函数（离散分佈）为$f_D$，以及一个分佈参数$\theta$，我们可以从这个分布中抽出一个具有$n$个值的采样$X_1, X_2,\ldots, X_n$，利用$f_D$计算出其似然函数：$\mbox{L}(\theta\mid x_1,\dots,x_n) = f_\theta(x_1,\dots,x_n)$.</p>
-<p>若$D$是离散分布，$f_\theta$即是在参数为$\theta$时观测到这一采样的概率。若其是连续分布，$f_\theta$则为$X_1, X_2,\ldots, X_n$联合分布的概率密度函数在观测值处的取值。一旦我们获得$X_1, X_2,\ldots, X_n$，我们就能求得一个关于$\theta$的估计。最大似然估计会寻找关于$\theta$的最可能的值（即，在所有可能的$\theta$取值中，寻找一个值使这个采样的“可能性”最大化）。从数学上来说，我们可以在$\theta$的所有可能取值中寻找一个值使得似然函数取到最大值。这个使可能性最大的$\widehat{\theta}$值即称为$\theta$的’‘‘最大似然估计’’'。</p>
-<p><strong>注意</strong>:<br>
-<em>这裡的似然函数是指$x_1,x_2,\ldots,x_n$不变时，关于$\theta$的一个函数</em>。<br>
-<em>最大似然估计不一定存在，也不一定唯一</em>。</p>
+<p>若$D$是离散分布，$f_\theta$即是在参数为$\theta$时观测到这一采样的概率。若其是连续分布，$f_\theta$则为$X_1, X_2,\ldots, X_n$联合分布的概率密度函数在观测值处的取值。一旦我们获得$X_1, X_2,\ldots, X_n$，我们就能求得一个关于$\theta$的估计。最大似然估计会寻找关于$\theta$的最可能的值（即，在所有可能的$\theta$取值中，寻找一个值使这个采样的“可能性”最大化）。从数学上来说，我们可以在$\theta$的所有可能取值中寻找一个值使得似然函数取到最大值。这个使可能性最大的$\widehat{\theta}$值即称为$\theta$的’’’最大似然估计’’’。</p>
+<p><strong>注意</strong>:<br><em>这裡的似然函数是指$x_1,x_2,\ldots,x_n$不变时，关于$\theta$的一个函数</em>。<br><em>最大似然估计不一定存在，也不一定唯一</em>。</p>
 </blockquote>
-<p>事件为1发生的概率$p(y=1|x,\theta)=p$ ,事件为0发生的概率 $p(y=0|x,\theta)=1-p$<br>
-那么事件发生的概率可以写成：$p(y|x,\theta)={p^{y}}\cdot{(1-p)^{1-y}}$<br>
-利用极大似然估计,似然函数:$L(\theta)=\prod_i p_i(y^i|x^i,\theta)$,为简化求解，取对数似然，有：<br>
-$$<br>
-\begin{split}<br>
-lnL(\theta) &amp;= \sum_i lnp_i(y^i|x^i,\theta) \\<br>
-&amp;= \sum_i [y^{i}lnp_i + (1-y^i)ln(1-p_i)] \\<br>
-&amp;= \sum_i [y^{i}ln\frac{p_i}{1-p_i} + ln(1-p_i)] \\<br>
-&amp;= \sum_i [y^{i}(\theta \cdot x^i) - ln(1 + e^{\theta \cdot x^i})]<br>
-\end{split}<br>
-$$<br>
-最大化似然相当于最小化如下函数：<br>
-$$<br>
-\begin{align}<br>
-J(\theta) &amp;= -\frac{1}{N}lnL(\theta) \\<br>
-&amp;= -\frac{1}{N} \sum_i [y^{i}(\theta \cdot x^i) - ln(1 + e^{\theta \cdot x^i})]<br>
-\end{align}<br>
-$$</p>
-<h4 id="交叉熵">交叉熵</h4>
-<p>K-L散度：衡量两个分布$P,Q$之间的差异<br>
-$$<br>
-\begin{align}<br>
-D_{KL}(P \parallel Q) &amp;= \sum_{x \in \chi }P(x)log\frac{P(x)}{Q(x)} \\<br>
-&amp;= \sum_{x \in \chi }(P(x)log(P(x))+ P(x)log \frac{1}{Q(x)}) \\<br>
-&amp;= -H_P+H(P,Q) \\<br>
-KL散度 &amp;= -熵+ 交叉熵<br>
-\end{align}<br>
-$$</p>
-<p>给定经验分布$P(y)$,我们要最小化模型分布$P_\theta(y)$与经验分布差异,即最小化二者的KL散度。回到公式定义，可以看出最小化KL散度等价于最小化交叉熵。交叉熵计算如下：<br>
-$$<br>
-\begin{align}<br>
-H(P(y|x,\theta_0),P_\theta(y|x,\theta)) &amp;= -\sum_{y \in {1,0}}P(y)logP_\theta(y) \\<br>
-&amp;= -[P(y=1)logP_\theta(y=1)+ (1-P(y=1))log (1-P_\theta(y=1))] \\<br>
-\end{align}<br>
-$$<br>
-通过采样,可以得到经验平均交叉熵:<br>
-$$<br>
-\begin{align}<br>
-\hat{H} &amp;= -\frac{1}{N}\sum_i [y^{i}logp_\theta(y^i) + (1-y^{i})log(1-p_\theta(y^i))] \\<br>
-\end{align}<br>
-$$</p>
+<p>事件为1发生的概率$p(y=1|x,\theta)=p$ ,事件为0发生的概率 $p(y=0|x,\theta)=1-p$<br>那么事件发生的概率可以写成：$p(y|x,\theta)={p^{y}}\cdot{(1-p)^{1-y}}$<br>利用极大似然估计,似然函数:$L(\theta)=\prod_i p_i(y^i|x^i,\theta)$,为简化求解，取对数似然，有：<br>$$<br>\begin{split}<br>lnL(\theta) &amp;= \sum_i lnp_i(y^i|x^i,\theta) \\<br>    &amp;= \sum_i [y^{i}lnp_i + (1-y^i)ln(1-p_i)] \\<br>    &amp;= \sum_i [y^{i}ln\frac{p_i}{1-p_i} + ln(1-p_i)] \\<br>    &amp;= \sum_i [y^{i}(\theta \cdot x^i) - ln(1 + e^{\theta \cdot x^i})]<br>\end{split}<br>$$<br>最大化似然相当于最小化如下函数：<br>$$<br>\begin{align}<br>J(\theta) &amp;= -\frac{1}{N}lnL(\theta) \\<br>          &amp;= -\frac{1}{N} \sum_i [y^{i}(\theta \cdot x^i) - ln(1 + e^{\theta \cdot x^i})]<br>\end{align}<br>$$</p>
+<h4 id="交叉熵"><a href="#交叉熵" class="headerlink" title="交叉熵"></a>交叉熵</h4><p>K-L散度：衡量两个分布$P,Q$之间的差异<br>$$<br>\begin{align}<br>D_{KL}(P \parallel Q) &amp;= \sum_{x \in \chi }P(x)log\frac{P(x)}{Q(x)} \\<br>&amp;= \sum_{x \in \chi }(P(x)log(P(x))+ P(x)log \frac{1}{Q(x)}) \\<br>&amp;= -H_P+H(P,Q) \\<br>KL散度 &amp;= -熵+ 交叉熵<br>\end{align}<br>$$</p>
+<p>给定经验分布$P(y)$,我们要最小化模型分布$P_\theta(y)$与经验分布差异,即最小化二者的KL散度。回到公式定义，可以看出最小化KL散度等价于最小化交叉熵。交叉熵计算如下：<br>$$<br>\begin{align}<br>H(P(y|x,\theta_0),P_\theta(y|x,\theta)) &amp;= -\sum_{y \in {1,0}}P(y)logP_\theta(y) \\<br>&amp;= -[P(y=1)logP_\theta(y=1)+ (1-P(y=1))log (1-P_\theta(y=1))] \\<br>\end{align}<br>$$<br>通过采样,可以得到经验平均交叉熵:<br>$$<br>\begin{align}<br>\hat{H} &amp;= -\frac{1}{N}\sum_i [y^{i}logp_\theta(y^i) + (1-y^{i})log(1-p_\theta(y^i))] \\<br>\end{align}<br>$$</p>
 <p><strong>我们从两个角度推出了同一个损失函数！</strong></p>
-<h3 id="1-3-问题求解">1.3 问题求解</h3>
-<p>无约束最优化问题：<br>
-$$<br>
-\begin{align}<br>
-\underset{\theta}{argmin}J(\theta)<br>
-\end{align}<br>
-$$<br>
-使用梯度下降算法求解:<br>
-$$<br>
-\begin{align}<br>
-\frac{\partial J(\theta)}{\partial \theta_i} &amp;= -\frac{1}{N}\sum_i[\frac{\partial y^{i}(\theta \cdot x^i)}{\partial \theta_i} - \frac{ln(1 + e^{\theta \cdot x^i})}{\partial \theta_i}] \\<br>
-&amp;=-\frac{1}{N}\sum_i y^ix_{i}^{i} + \sum_i \frac{x_{i}^{i}e^{\theta \cdot x^i}}{1+e^{\theta \cdot x^i}} \\<br>
-&amp;= \frac{1}{N}\sum_i (p_i-y^i)x_{i}^{i}<br>
-\end{align}<br>
-$$<br>
-参数更新公式:<br>
-$$<br>
-\begin{align}<br>
-\theta_{i}^{k+1} = \theta_{i}^{k} - \alpha\frac{\partial J(\theta)}{\partial \theta_i}<br>
-\end{align}<br>
-$$</p>
-<h3 id="1-4-讨论">1.4 讨论</h3>
-<ul>
+<h3 id="1-3-问题求解"><a href="#1-3-问题求解" class="headerlink" title="1.3 问题求解"></a>1.3 问题求解</h3><p>无约束最优化问题：<br>$$<br>\begin{align}<br>\underset{\theta}{argmin}J(\theta)<br>\end{align}<br>$$<br>使用梯度下降算法求解:<br>$$<br>\begin{align}<br>\frac{\partial J(\theta)}{\partial \theta_i} &amp;= -\frac{1}{N}\sum_i[\frac{\partial y^{i}(\theta \cdot x^i)}{\partial \theta_i} - \frac{ln(1 + e^{\theta \cdot x^i})}{\partial \theta_i}] \\<br>&amp;=-\frac{1}{N}\sum_i y^ix_{i}^{i} + \sum_i \frac{x_{i}^{i}e^{\theta \cdot x^i}}{1+e^{\theta \cdot x^i}} \\<br>&amp;= \frac{1}{N}\sum_i (p_i-y^i)x_{i}^{i}<br>\end{align}<br>$$<br>参数更新公式:<br>$$<br>\begin{align}<br>\theta_{i}^{k+1} = \theta_{i}^{k} - \alpha\frac{\partial J(\theta)}{\partial \theta_i}<br>\end{align}<br>$$</p>
+<h3 id="1-4-讨论"><a href="#1-4-讨论" class="headerlink" title="1.4 讨论"></a>1.4 讨论</h3><ul>
 <li>损失函数可以选择平方损失吗</li>
 <li>极大似然估计与最小化交叉熵有什么联系</li>
 </ul>
-<h3 id="1-5-逻辑回归与在线学习">1.5 逻辑回归与在线学习</h3>
-<h4 id="在线学习">在线学习</h4>
-<p>在线学习 ( OnlineLearning ) 代表了一系列机器学习算法，特点是每来一个样本就能训练，能够根据线上反馈数据，实时快速地进行模型调整，使得模型及时反映线上的变化，提高线上预测的准确率。相比之下，传统的批处理方式需要一次性收集所有数据，新数据到来时重新训练的代价也很大，因而更新周期较长，可扩展性不高。<br>
-问题：稀疏性不好解决，随机梯度下降无法得到稀疏解(浮点运算，很难出现0值)<br>
-解决稀疏性的方法</p>
+<h3 id="1-5-逻辑回归与在线学习"><a href="#1-5-逻辑回归与在线学习" class="headerlink" title="1.5 逻辑回归与在线学习"></a>1.5 逻辑回归与在线学习</h3><h4 id="在线学习"><a href="#在线学习" class="headerlink" title="在线学习"></a>在线学习</h4><p>在线学习 ( OnlineLearning ) 代表了一系列机器学习算法，特点是每来一个样本就能训练，能够根据线上反馈数据，实时快速地进行模型调整，使得模型及时反映线上的变化，提高线上预测的准确率。相比之下，传统的批处理方式需要一次性收集所有数据，新数据到来时重新训练的代价也很大，因而更新周期较长，可扩展性不高。<br>问题：稀疏性不好解决，随机梯度下降无法得到稀疏解(浮点运算，很难出现0值)<br>解决稀疏性的方法</p>
 <ul>
 <li>加入L1正则</li>
 <li>简单截断,当梯度小于某个阈值时，强制归零</li>
 <li>梯度截断</li>
 </ul>
-<p>$$<br>
-\begin{equation}<br>
-T(x,\alpha,\theta)=<br>
-\begin{cases}<br>
-max(0,x-\alpha)&amp; {x \in [0,\theta]} \\<br>
-min(0,x+\alpha)&amp; {x \in [-\theta,0]} \\<br>
-x&amp; {其他} \<br>
-\end{cases}<br>
-\end{equation}<br>
-$$</p>
+<p>$$<br>\begin{equation}<br>T(x,\alpha,\theta)=<br>\begin{cases}<br>max(0,x-\alpha)&amp; {x \in [0,\theta]} \\<br>min(0,x+\alpha)&amp; {x \in [-\theta,0]} \\<br>x&amp; {其他} \<br>\end{cases}<br>\end{equation}<br>$$</p>
 
                 
             </div>
@@ -600,63 +516,6 @@ $$</p>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/04/13/ocaml-learn/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="OCaml Learn">
-                        
-                        <span class="card-title">OCaml Learn</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-13
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Function-Programming/" class="post-category">
-                                    Function Programming
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Ocaml/">
-                        <span class="chip bg-color">Ocaml</span>
-                    </a>
-                    
-                    <a href="/tags/Function-Programming/">
-                        <span class="chip bg-color">Function Programming</span>
-                    </a>
-                    
-                    <a href="/tags/Dune/">
-                        <span class="chip bg-color">Dune</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
                 <a href="/2022/10/28/cao-zuo-xi-tong-jie-kou/">
                     <div class="card-image">
                         
@@ -673,9 +532,9 @@ $$</p>
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-28
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-28
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -693,6 +552,55 @@ $$</p>
                     
                     <a href="/tags/xv6/">
                         <span class="chip bg-color">xv6</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/10/20/hello/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Hexo + github page 搭建个人博客">
+                        
+                        <span class="card-title">Hexo + github page 搭建个人博客</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="post-category">
+                                    博客搭建
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
                     </a>
                     
                 </div>

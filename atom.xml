@@ -6,7 +6,7 @@
   <link href="https://erinable.github.io/atom.xml" rel="self"/>
   
   <link href="https://erinable.github.io/"/>
-  <updated>2023-04-14T07:03:17.373Z</updated>
+  <updated>2023-04-14T07:20:33.818Z</updated>
   <id>https://erinable.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://erinable.github.io/2023/04/13/zi-ji-dong-shou-shi-xian-bian-yi-qi-yi-ci-fa-fen-xi/"/>
     <id>https://erinable.github.io/2023/04/13/zi-ji-dong-shou-shi-xian-bian-yi-qi-yi-ci-fa-fen-xi/</id>
     <published>2023-04-13T13:15:50.000Z</published>
-    <updated>2023-04-14T07:03:17.373Z</updated>
+    <updated>2023-04-14T07:20:33.818Z</updated>
     
     
     <summary type="html">本篇介绍了此法分析的基本原理和实现方法</summary>
@@ -47,9 +47,7 @@
       
         
         
-    <summary type="html">&lt;h1&gt;AutoML模型算子实现&lt;/h1&gt;
-&lt;h2 id=&quot;1-模型算子开发指南&quot;&gt;1.模型算子开发指南&lt;/h2&gt;
-&lt;p&gt;模型算子需实现grid search space(网格搜索空间)、hpo search</summary>
+    <summary type="html">&lt;h1 id=&quot;AutoML模型算子实现&quot;&gt;&lt;a href=&quot;#AutoML模型算子实现&quot; class=&quot;headerlink&quot; title=&quot;AutoML模型算子实现&quot;&gt;&lt;/a&gt;AutoML模型算子实现&lt;/h1&gt;&lt;h2 id=&quot;1-模型算子开发指南&quot;&gt;&lt;a</summary>
         
       
     
@@ -76,9 +74,7 @@
       
         
         
-    <summary type="html">&lt;h1&gt;OCaml如何利用dune来构建项目&lt;/h1&gt;
-&lt;h2 id=&quot;1-dune创建项目命令&quot;&gt;1.dune创建项目命令&lt;/h2&gt;
-&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code</summary>
+    <summary type="html">&lt;h1 id=&quot;OCaml如何利用dune来构建项目&quot;&gt;&lt;a href=&quot;#OCaml如何利用dune来构建项目&quot; class=&quot;headerlink&quot; title=&quot;OCaml如何利用dune来构建项目&quot;&gt;&lt;/a&gt;OCaml如何利用dune来构建项目&lt;/h1&gt;&lt;h2</summary>
         
       
     
@@ -96,33 +92,6 @@
   </entry>
   
   <entry>
-    <title>逻辑回归</title>
-    <link href="https://erinable.github.io/2022/10/28/luo-ji-hui-gui-jiang-jie/"/>
-    <id>https://erinable.github.io/2022/10/28/luo-ji-hui-gui-jiang-jie/</id>
-    <published>2022-10-28T03:56:52.000Z</published>
-    <updated>2023-04-13T12:03:26.533Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;逻辑回归&lt;/h1&gt;
-&lt;h2 id=&quot;1-模型介绍&quot;&gt;1.模型介绍&lt;/h2&gt;
-&lt;p&gt;Logistic Regression</summary>
-        
-      
-    
-    
-    
-    <category term="统计机器学习" scheme="https://erinable.github.io/categories/%E7%BB%9F%E8%AE%A1%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="ML" scheme="https://erinable.github.io/tags/ML/"/>
-    
-  </entry>
-  
-  <entry>
     <title>操作系统概述</title>
     <link href="https://erinable.github.io/2022/10/28/cao-zuo-xi-tong-jie-kou/"/>
     <id>https://erinable.github.io/2022/10/28/cao-zuo-xi-tong-jie-kou/</id>
@@ -134,8 +103,7 @@
       
         
         
-    <summary type="html">&lt;h1&gt;1.操作系统概述&lt;/h1&gt;
-&lt;p&gt;以分时复用的方式让多个程序可以有效利用计算机的硬件资源，并且相对于程序直接操作硬件资源，通过与操作系统交互间接使用硬件资源的形式更便捷简单。具体地，操作系统以一种称之为 “&lt;strong&gt;_kernel</summary>
+    <summary type="html">&lt;h1 id=&quot;1-操作系统概述&quot;&gt;&lt;a href=&quot;#1-操作系统概述&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -145,6 +113,31 @@
     
     
     <category term="xv6" scheme="https://erinable.github.io/tags/xv6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>逻辑回归</title>
+    <link href="https://erinable.github.io/2022/10/28/luo-ji-hui-gui-jiang-jie/"/>
+    <id>https://erinable.github.io/2022/10/28/luo-ji-hui-gui-jiang-jie/</id>
+    <published>2022-10-28T03:56:52.000Z</published>
+    <updated>2023-04-13T12:03:26.533Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;逻辑回归&quot;&gt;&lt;a href=&quot;#逻辑回归&quot; class=&quot;headerlink&quot; title=&quot;逻辑回归&quot;&gt;&lt;/a&gt;逻辑回归&lt;/h1&gt;&lt;h2 id=&quot;1-模型介绍&quot;&gt;&lt;a href=&quot;#1-模型介绍&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="统计机器学习" scheme="https://erinable.github.io/categories/%E7%BB%9F%E8%AE%A1%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="ML" scheme="https://erinable.github.io/tags/ML/"/>
     
   </entry>
   
@@ -160,9 +153,7 @@
       
         
         
-    <summary type="html">&lt;h1&gt;Hexo + github page 搭建个人博客&lt;/h1&gt;
-&lt;h2 id=&quot;1-注册github账号&quot;&gt;1.注册github账号&lt;/h2&gt;
-&lt;p&gt;首先去&lt;a</summary>
+    <summary type="html">&lt;h1 id=&quot;Hexo-github-page-搭建个人博客&quot;&gt;&lt;a href=&quot;#Hexo-github-page-搭建个人博客&quot; class=&quot;headerlink&quot; title=&quot;Hexo + github page 搭建个人博客&quot;&gt;&lt;/a&gt;Hexo + github</summary>
         
       
     
