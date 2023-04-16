@@ -340,7 +340,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.2k
                 </div>
                 
 
@@ -402,8 +402,8 @@
 <p>我们说状态机$FA(S,\Sigma,\delta,s_0,S_A)$ 接受字符串$x$当且仅当如下条件成立:<br>$$<br>\delta(\delta(…\delta(\delta(\delta(s_0,x_1),x_2),x_3)…,x_{n-1}),x_n)\in S_A<br>$$<br> 有没有一种等价的方式来描述上述的状态图呢？答案是有！正则表达式<em>regular expression</em></p>
 <h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p>正则表达式在给定字母表上描述了字符集合，包括空字符。这样的字符集合称之为<em>language</em>。对于给定的正则表达式r，language表示为L(r).正则表达式定义了三种运算：</p>
 <ul>
-<li>Union，$R|S:={x|x\in R \or x\in S}$</li>
-<li>Concatenation,$RS:={x\in R\and x\in S}$ </li>
+<li>Union，$R|S:={x|x\in R \text{ or } x\in S}$</li>
+<li>Concatenation,$RS:={xy|x\in R\text{ and } y\in S}$ </li>
 <li>Closure,$R^*:=\bigcup_{i=0}^{\infty}R^i$</li>
 </ul>
 <p>特别地，$R^+:=\bigcup_{i=1}^{\infty}R^i=RR^*$,[0…9]=(0|1|2|3|4|5|6|7|8|9)</p>
@@ -434,7 +434,17 @@
 <h4 id="4-构建-a-b-c"><a href="#4-构建-a-b-c" class="headerlink" title="4.构建$a(b|c)^*$"></a>4.构建$a(b|c)^*$</h4><p><img src="/imgs/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E7%BC%96%E8%AF%91%E5%99%A8-%E4%B8%80-%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90/image-20230416011321949.png"></p>
 <h4 id="5-DFA的等价表示"><a href="#5-DFA的等价表示" class="headerlink" title="5.DFA的等价表示"></a>5.DFA的等价表示</h4><p><img src="/imgs/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E7%BC%96%E8%AF%91%E5%99%A8-%E4%B8%80-%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90/image-20230416011430187.png"></p>
 <p>对比DFA和NFA我们可以发现：NFA包含很多冗余的状态节点及状态转移，因此利用NFA构建DFA是必要的。</p>
-<h2 id="NFA到DFA（Subset-Construction）"><a href="#NFA到DFA（Subset-Construction）" class="headerlink" title="NFA到DFA（Subset Construction）"></a>NFA到DFA（Subset Construction）</h2>
+<h2 id="NFA到DFA（Subset-Construction）"><a href="#NFA到DFA（Subset-Construction）" class="headerlink" title="NFA到DFA（Subset Construction）"></a>NFA到DFA（Subset Construction）</h2><p>$\epsilon-closure(s_a)$:当前状态的所有空跳后继状态集合</p>
+<p>$n_0$:start state</p>
+<p>$q$:迭代状态变量</p>
+<p>$Q$:DFA state set</p>
+<img src="/imgs/自己动手实现编译器-一-词法分析/image-20230416143108667.png" align="left" alt="Subset Construction" style="zoom:50%;">
+
+<p>算法分析：对于NFA的N个状态，路径排列是$2^N$ ,在while循环中注意到，Q是单调递增的，且worklist中t一定是不同的(相同地不会加入Q和worklist)，当Q中元素数量达到最大时，add操作不会执行，所以算法一定会终止，不会陷入死循环。</p>
+<h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><p><img src="/imgs/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E7%BC%96%E8%AF%91%E5%99%A8-%E4%B8%80-%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90/image-20230416151530550.png"></p>
+<p><img src="/imgs/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E7%BC%96%E8%AF%91%E5%99%A8-%E4%B8%80-%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90/image-20230416151559591.png"></p>
+<p><img src="/imgs/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E7%BC%96%E8%AF%91%E5%99%A8-%E4%B8%80-%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90/image-20230416151636372.png" alt="DFA结果"></p>
+
                 
             </div>
             <hr/>
@@ -841,7 +851,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">7k</span>
+                        class="white-color">7.2k</span>
             
             
             
